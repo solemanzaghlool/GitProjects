@@ -1,0 +1,55 @@
+- name: Add ipv4 address to out of band mgmt interface
+  hosts: myapic
+  gather_facts: false
+  tasks:
+
+
+    - name: Add ipv4 address to out of band mgmt interface Node101 
+      cisco.aci.aci_static_node_mgmt_address:
+        host: 192.168.100.150
+        username: admin
+        password: admin
+        use_ssl: true
+        validate_certs: false
+        epg: default
+        pod_id: 1
+        type: out_of_band     
+        node_id: 101                        
+        ipv4_address: "192.168.100.201/24"    
+        ipv4_gw: "192.168.100.1"
+        state: present
+      delegate_to: localhost
+
+
+    - name: Add ipv4 address to out of band mgmt interface Node102 
+      cisco.aci.aci_static_node_mgmt_address:
+        host: 192.168.100.150
+        username: admin
+        password: admin
+        use_ssl: true
+        validate_certs: false
+        epg: default
+        pod_id: 1
+        type: out_of_band       
+        node_id: 102                            
+        ipv4_address: "192.168.100.202/24"     
+        ipv4_gw: "192.168.100.1"
+        state: present
+      delegate_to: localhost
+
+
+    - name: Add ipv4 address to out of band mgmt interface Node103   
+      cisco.aci.aci_static_node_mgmt_address:
+        host: 192.168.100.150
+        username: admin
+        password: admin
+        use_ssl: true
+        validate_certs: false
+        epg: default
+        pod_id: 1
+        type: out_of_band
+        node_id: 103                                 
+        ipv4_address: "192.168.100.203/24"           
+        ipv4_gw: "192.168.100.1"
+        state: present
+      delegate_to: localhost
